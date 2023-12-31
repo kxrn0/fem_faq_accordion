@@ -6,11 +6,131 @@
   box-sizing: border-box;
 }
 
+@supports (font-variation-settings: normal) {
+  @font-face {
+    font-family: work;
+    src: url("./assets/fonts/WorkSans-VariableFont_wght.ttf");
+    font-weight: 100 1000;
+  }
+}
+
+@supports not (font-variation-settings: normal) {
+  @font-face {
+    font-family: work;
+    src: url("./assets/fonts/static/WorkSans-Regular.ttf");
+    font-weight: 400;
+  }
+}
+
+@supports not (font-variation-settings: normal) {
+  @font-face {
+    font-family: work;
+    src: url("./assets/fonts/static/WorkSans-SemiBold.ttf");
+    font-weight: 600;
+  }
+}
+
+@supports not (font-variation-settings: normal) {
+  @font-face {
+    font-family: work;
+    src: url("./assets/fonts/static/WorkSans-Bold.ttf");
+    font-weight: 700;
+  }
+}
+
 :root {
+  --light-pink: hsl(276, 100%, 97%);
+  --gray-purple: hsl(292, 16%, 49%);
+  --dark-purple: hsl(292, 42%, 14%);
+  --pink: hsl(281, 83%, 54%);
+  --duration: 0.33s;
 }
 
 body {
+  background-color: var(--light-pink);
+  background-image: url("./assets/images/background-pattern-desktop.svg");
+  background-size: 100%;
+  background-repeat: no-repeat;
   display: grid;
   place-items: center;
   min-height: 100vh;
+
+  @media screen and (max-width: 690px) {
+    background-image: url("./assets/images/background-pattern-mobile.svg");
+  }
+}
+
+.fs-h1,
+.fs-title,
+.fs-body {
+  font-family: work;
+}
+
+.fs-h1 {
+  font-size: 56px;
+  font-weight: 700;
+
+  @media screen and (max-width: 690px) {
+    font-size: 32px;
+  }
+}
+
+.fs-title {
+  font-size: 18px;
+  font-weight: 600;
+
+  @media screen and (max-width: 690px) {
+    font-size: 16px;
+  }
+}
+
+.fs-body {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+
+  @media screen and (max-width: 690px) {
+    font-size: 14px;
+    line-height: 21px;
+  }
+}
+
+.flex-row {
+  display: flex;
+  align-items: center;
+}
+
+.flex-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.gap-a {
+  display: flex;
+  gap: 24px;
+}
+
+.gap-b {
+  display: flex;
+  gap: 32px;
+
+  @media screen and (max-width: 690px) {
+    gap: 24px;
+  }
+}
+
+.p-a {
+  padding: 30px 0;
+
+  @media screen and (max-width: 690px) {
+    padding: 20px 0;
+  }
+}
+
+.p-b {
+  padding: 40px;
+
+  @media screen and (max-width: 690px) {
+    padding: 24px;
+  }
 }

@@ -1,4 +1,116 @@
 .accordion {
-  padding: 50px;
-  background: purple;
+  background-color: white;
+  color: var(--dark-purple);
+  border-radius: 16px;
+  box-shadow: 0px 32px 56px 0px rgba(80, 0, 118, 0.1);
+  width: 600px;
+
+  .head {
+    svg {
+      @media screen and (max-width: 690px) {
+        transform: scale(0.6);
+        transform-origin: right;
+      }
+    }
+  }
+
+  .faqs {
+    .faq {
+      &.open {
+        .question {
+          .input-container {
+            .icon {
+              background-color: var(--dark-purple);
+
+              &::after {
+                transform: translate(-50%, -50%) rotate(0);
+              }
+            }
+          }
+        }
+
+        .answer {
+          grid-template-rows: 1fr;
+          padding-top: 24px;
+        }
+      }
+
+      &:not(:last-of-type) {
+        border-bottom: 1px solid var(--light-pink);
+      }
+
+      .question {
+        justify-content: space-between;
+
+        .fs-title {
+          transition: color var(--duration);
+
+          @media (hover: hover) {
+            &:hover {
+              color: var(--pink);
+            }
+          }
+        }
+
+        .input-container {
+          position: relative;
+          display: grid;
+          place-items: center;
+
+          .icon {
+            background-color: var(--pink);
+            width: 26px;
+            height: 26px;
+            border-radius: 100%;
+            position: relative;
+            transition: background-color var(--duration);
+
+            &::before,
+            &::after {
+              content: "";
+              display: block;
+              background: white;
+              width: 12px;
+              height: 2px;
+              border-radius: 4px;
+              position: absolute;
+              top: 50%;
+              left: 50%;
+            }
+
+            &::before {
+              transform: translate(-50%, -50%);
+            }
+
+            &::after {
+              transform: translate(-50%, -50%) rotate(90deg);
+              transition: transform var(--duration);
+            }
+          }
+
+          input[type="checkbox"] {
+            appearance: none;
+            position: absolute;
+            inset: 0;
+          }
+        }
+      }
+
+      .answer {
+        display: grid;
+        grid-template-rows: 0fr;
+        transition: grid-template-rows var(--duration), padding var(--duration);
+        padding: 0;
+
+        .content {
+          color: var(--gray-purple);
+          overflow: hidden;
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 690px) {
+    width: 330px;
+  }
 }
