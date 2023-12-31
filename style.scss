@@ -20,17 +20,13 @@
     src: url("./assets/fonts/static/WorkSans-Regular.ttf");
     font-weight: 400;
   }
-}
 
-@supports not (font-variation-settings: normal) {
   @font-face {
     font-family: work;
     src: url("./assets/fonts/static/WorkSans-SemiBold.ttf");
     font-weight: 600;
   }
-}
 
-@supports not (font-variation-settings: normal) {
   @font-face {
     font-family: work;
     src: url("./assets/fonts/static/WorkSans-Bold.ttf");
